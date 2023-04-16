@@ -64,17 +64,15 @@ int xoaTheoID(TK a[], int id, int n) {
 }
 
 void showTK(TK a[], int n) {
-    printLine(100);
-    printf("\n\tID\tHo va ten\t\tGioi tinh\tNgaySinh\tSo Dien Thoai\tSo Du");printf("\n");
+   
+   printf("\n");
+    printf("| ID  |      Ho va ten      | Gioi tinh|   Ngay sinh  |  So dien thoai|      So du      |      Tien lai      |  Tong tiet kiem don   |   Lai kep   |\n");
+    printf("+-----+----------------------+-----------+--------------+---------------+-----------------+-------------------+-----------------------+--------------+\n");
     for(int i = 0; i < n; i++) {
-        printf("\t%d", a[i].id);
-        printf("\t%s", a[i].ten);
-        printf("\t%s", a[i].gioitinh);
-        printf("\t\t%d/%d/%d", a[i].ngaysinh.day, a[i].ngaysinh.month, a[i].ngaysinh.year);
-        printf("\t%s", a[i].sdt);
-        printf("\t%d USD\n", a[i].sodu.goc);
+        printf("|%5d| %-20s|%-11s|%2d/%2d/%-9d|%-15s|%16d |%19.2lf |%22.2lf |%13.2lf |\n"
+		, a[i].id, a[i].ten, a[i].gioitinh, a[i].ngaysinh.day, a[i].ngaysinh.month, a[i].ngaysinh.year, a[i].sdt, a[i].sodu.goc, a[i].tienlai, a[i].tong, a[i].laikep);
+        printf("+-----+----------------------+-----------+--------------+---------------+-----------------+-------------------+-----------------------+--------------+\n");
     }
-    printLine(100);
 }
 
 void timKiemTheoTen(TK a[], char ten[], int n) {

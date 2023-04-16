@@ -11,15 +11,18 @@ int main(int argc, char** argv) {
     soluongTK = docFile(arrayTK, fileName);
  
     while(true) {
-        printf("CHUONG TRINH QUAN LY NGAN HANG\n");
         printf("=========================MENU==========================\n");
         printf("==  1. Them tai khoan.                               ==\n");
         printf("==  2. Cap nhat thong tin tai khoan boi ID.          ==\n");
         printf("==  3. Xoa tai khoan theo ID.                        ==\n");
         printf("==  4. Tim kiem tai khoan theo ten.                  ==\n");
-        printf("==  5. Giao dich.                                    ==\n");
-        printf("==  8. Hien thi danh sach tai khoan.                 ==\n");
-        printf("==  9. Ghi danh sach tai khoan vao file.             ==\n"); 
+        printf("==  5. Nap tien vao tai khoan.                       ==\n");
+        printf("==  6. Rut tien vao tai khoan.                       ==\n");
+        printf("==  7. Chuyen tien den tai khoan.                    ==\n");
+        printf("==  8. Lai Don.                                      ==\n");
+        printf("==  9. Lai Kep.                                      ==\n");
+        printf("==  10. Hien thi danh sach tai khoan.                ==\n");
+        printf("==  11. Ghi danh sach tai khoan vao file.            ==\n"); 
         printf("==  0. Thoat                                         ==\n");
         printf("=======================================================\n");
         printf("Nhap tuy chon: ");
@@ -69,68 +72,66 @@ int main(int argc, char** argv) {
                 }
                 pressAnyKey();
                 break;
+               break;
             case 5:
-            	system("cls");
-            	if(soluongTK > 0) {
-				int c;
-				while(true) {
-        		printf("\n");
-        		printf("======================GIAO DICH========================\n");
-        		printf("==  1. Nap tien vao tai khoan.                       ==\n");
-        		printf("==  2. Rut tien vao tai khoan.                       ==\n");
-       			printf("==  3. Chuyen tien den tai khoan.                    ==\n");
-        		printf("==  0. Thoat                                         ==\n");
-        		printf("=======================================================\n");
-        		printf("Nhap tuy chon: ");
-        		scanf("%d", &c);
-        		switch(c){
-        		case 1:
-            	if(soluongTK > 0) {
-                    int id;
-                    printf("\n1. Nap tien. ");
-                    printf("\n Nhap ID: "); scanf("%d", &id);
+                if(soluongTK > 0) {
+                    printf("\n4. Nap tien.");
+                     int id;
+                    printf("\n Nhap id nap tien: ");  scanf("%d",&id);
                     naptienvaotaikhoan(arrayTK, id, soluongTK);
                 }else{
-                    printf("\nSanh sach tai khoan trong!");
-                }
-                pressAnyKey();
-                break;
-               case 2:
-            	if(soluongTK > 0) {
-                    int id;
-                    printf("\n2. Rut tien. ");
-                    printf("\n Nhap ID: "); scanf("%d", &id);
-                    ruttientutaikhoan(arrayTK, id, soluongTK);
-                }else{
-                    printf("\nSanh sach tai khoan trong!");
-                }
-                pressAnyKey();
-                break;
-            	case 3:
-            	if(soluongTK > 0) {
-                    int id1, id2;
-                    printf("\n3. Chuyen tien. ");
-                    printf("\nNhap ID chuyen tien: "); scanf("%d", &id1);
-                    printf("Nhap ID nhan tien: "); scanf("%d", &id2);
-                    chuyentiendentaikhoan(arrayTK, id1, id2, soluongTK);
-                }else{
-                    printf("\nSanh sach tai khoan trong!");
-                }
-                pressAnyKey();
-                break;
-                case 0:
-                printf("\nBan da chon thoat chuong trinh!");
-                getch();
-                return 0;
-		}
-	}
-}
-            else{
                     printf("\nDanh sach tai khoan trong!");
                 }
                 pressAnyKey();
                 break;
+            case 6:
+                if(soluongTK > 0) {
+                    printf("\n4. Rut tien.");
+                 int id;
+                    printf("\n Nhap id rut tien: ");  scanf("%d",&id);
+                    ruttientutaikhoan(arrayTK, id, soluongTK);
+                }else{
+                    printf("\nDanh sach tai khoan trong!");
+                }
+                pressAnyKey();
+                break;
+                
+            case 7:
+                if(soluongTK > 0) {
+                    printf("\n4. Chuyen tien.");
+                     int id1,id2;
+                    printf("\n Nhap id chuyen tien: ");  scanf("%d",&id1);
+                    printf("\n Nhap id nhan tien: ");  scanf("%d",&id2);
+                    chuyentiendentaikhoan(arrayTK, id1, id2, soluongTK);
+                }else{
+                    printf("\nDanh sach tai khoan trong!");
+                }
+                pressAnyKey();
+                break;
+                
             case 8:
+                if(soluongTK > 0) {
+                    printf("\n4. Lai don.");
+                     int id;
+                   printf("\n Nhap id : ");  scanf("%d",&id);
+                    taikhoantietkiem1(arrayTK, id, soluongTK);
+                }else{
+                    printf("\nDanh sach tai khoan trong!");
+                }
+                pressAnyKey();
+                break;
+            case 9:
+                if(soluongTK > 0) {
+                    printf("\n4. lai kep.");
+                    int id;
+                    printf("\nNhap id : "); scanf("%d",&id);
+                    taikhoantietkiem2(arrayTK, id, soluongTK);
+                }else{
+                    printf("\nDanh sach tai khoan trong!");
+                }
+                pressAnyKey();
+                break;
+            case 10:
                 if(soluongTK > 0){
                     printf("\n8. Hien thi danh sach tai khoan.");
                     showTK(arrayTK, soluongTK);
@@ -139,7 +140,7 @@ int main(int argc, char** argv) {
                 }
                 pressAnyKey();
                 break;
-            case 9:
+            case 11:
                 if(soluongTK > 0){
                     printf("\n9. Ghi danh sach tai khoan vao file.");
                     ghiFile(arrayTK, soluongTK, fileName);

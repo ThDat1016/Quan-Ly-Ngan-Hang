@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include<math.h>
 #define MAX 100
 
 struct date{
@@ -11,6 +12,8 @@ struct tien{
 	int goc, tien;
 };
 typedef struct TaiKhoan{
+	float tienlai,tong,laikep,laisuat;
+	int kihan;
 	int id;
 	char ten[30];
 	char gioitinh[5];
@@ -33,6 +36,8 @@ void timKiemTheoTen(TK a[], char ten[], int n);
 void naptienvaotaikhoan(TK a[], int id, int n);
 void ruttientutaikhoan(TK a[], int id, int n);
 void chuyentiendentaikhoan(TK a[], int id1, int id2, int n);
+void taikhoantietkiem1(TK a[], int id, int n);
+void taikhoantietkiem2(TK a[], int id, int n);
 void menugd();
 // file
 int docFile(TK a[], char fileName[]);

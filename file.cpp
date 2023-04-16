@@ -4,7 +4,7 @@ int docFile(TK a[], char fileName[]) {
     int i = 0;
     fp = fopen (fileName, "r");
     printf("Chuan bi doc file: "); puts(fileName);
-    while (fscanf(fp, "%5d%30s%5s%5d%d%d%5s%d\n", &a[i].id, &a[i].ten, &a[i].gioitinh, &a[i].ngaysinh.day, &a[i].ngaysinh.month, &a[i].ngaysinh.year, &a[i].sdt, &a[i].sodu.goc) != EOF) {
+    while (fscanf(fp, "%5d%30s%5s%5d%d%d%5s%d%0.2f%0.2f%0.2f\n", &a[i].id, &a[i].ten, &a[i].gioitinh, &a[i].ngaysinh.day, &a[i].ngaysinh.month, &a[i].ngaysinh.year, &a[i].sdt, &a[i].sodu.goc,&a[i].tienlai,&a[i].tong,&a[i].laikep)) {
        i++;
 	   printf("Doc ban ghi thu: %d\n", i);
     }
@@ -17,9 +17,10 @@ int docFile(TK a[], char fileName[]) {
 void ghiFile(TK a[], int n, char fileName[]) {
     FILE * fp;
     fp = fopen (fileName,"w");
-    fprintf(fp, "ID\tHo va ten\t\tGioi tinh\tNgaySinh\tSo Dien Thoai\tSo Du");
+    fprintf(fp,"| ID  |      Ho va ten      | Gioi tinh|   Ngay sinh  |  So dien thoai|      So du      |      Tien lai      |  Tong tiet kiem don   |   Lai kep   |\n");
     for(int i = 0;i < n;i++){
-        fprintf(fp, "\n%d\t%s\t%s\t\t%d/%d/%d\t%s\t%d USD", a[i].id, a[i].ten, a[i].gioitinh, a[i].ngaysinh.day, a[i].ngaysinh.month, a[i].ngaysinh.year, a[i].sdt,a[i].sodu.goc);
-    }
+        fprintf(fp,"\n|%5d| %-20s|%-11s|%2d/%2d/%-9d|%-15s|%16d |%19.2lf |%22.2lf |%13.2lf |\n"
+		, a[i].id, a[i].ten, a[i].gioitinh, a[i].ngaysinh.day, a[i].ngaysinh.month, a[i].ngaysinh.year, a[i].sdt, a[i].sodu.goc, a[i].tienlai, a[i].tong, a[i].laikep);
+		}
     fclose (fp);
 }
