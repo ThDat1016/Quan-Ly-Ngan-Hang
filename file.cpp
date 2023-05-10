@@ -7,6 +7,7 @@ int docFile(TK a[], char fileName[]) {
     while (fscanf(fp, "%5d%30s%5s%5d%d%d%5s%d%0.2f%0.2f%0.2f\n", &a[i].id, &a[i].ten, &a[i].gioitinh, &a[i].ngaysinh.day, &a[i].ngaysinh.month, &a[i].ngaysinh.year, &a[i].sdt, &a[i].sodu.goc,&a[i].tienlai,&a[i].tong,&a[i].laikep)) {
        i++;
 	   printf("Doc ban ghi thu: %d\n", i);
+	    break;
     }
     printf("So luong tai khoan co san trong file la: %d\n", i);
     printf("\n");
